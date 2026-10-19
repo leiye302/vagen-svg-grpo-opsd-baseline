@@ -3,10 +3,6 @@
 在 VAGEN 的 **目标图片 → reasoning → 完整 SVG → 渲染反馈** 环境中，用
 Qwen2.5-VL-3B-Instruct 直接进行 GRPO + gated OPSD。默认跑 **50 次 trainer update**。
 
-本仓库只发布 baseline。**不需要 Route-SFT checkpoint、私人轨迹、标注库、
-Analyzer、API key、任何作者电脑或服务器上的文件。** 所需代码、模型和图像数据
-均从固定版本的公开来源取得。它不是 VAGEN-Full PPO/bi-level-GAE 的原样复现；
-是 VAGEN 多模态环境与 rollout + SDAR 公开损失的适配版本。
 
 ## 1. 一眼看清训练配置
 
@@ -44,8 +40,7 @@ Student 在 rollout 和验证时只看原生图片、历史、渲染反馈，**�
 - 默认面向单张 **80–96 GB NVIDIA GPU**；优先 RTX PRO 6000 96GB，或 A100/H100 80GB。
   具体峰值仍需在实际机器上运行 smoke 确认，不能只凭卡名保证能装下。
 - CUDA 12.8 兼容驱动。若从源码构建 CUDA 扩展，还需要 CUDA 12.8 toolkit。
-- 建议可用 CPU 内存 **至少 96 GiB**，最好 128 GiB；CPU offload 会使用主存。
-- 建议准备 **180 GiB 可用磁盘**，用于依赖、模型、数据及保存时的临时峰值。
+- 建议准备 **150 GiB 可用磁盘**，用于依赖、模型、数据及保存时的临时峰值。
   小磁盘请先运行 preflight，不要删 optimizer 来伪装“完整断点”。
 - 系统依赖（Debian/Ubuntu）：
 
@@ -59,7 +54,7 @@ sudo apt-get install -y git python3.12 python3.12-venv build-essential \
 显式启用 **vLLM V0**。旧 VAGEN 的 FSDP 权重同步不能直接套用 vLLM 0.11 的 V1。
 不要在原有训练环境中随意降级；安装脚本建立独立 `.venv`。
 
-## 3. 从零准备：不需要作者的任何本地文件
+## 3. 从零准备
 
 克隆本仓库，进入仓库根目录，然后执行：
 
