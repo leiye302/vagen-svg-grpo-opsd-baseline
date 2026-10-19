@@ -1,0 +1,42 @@
+{
+  "VAGEN/vagen/trainer/ppo/ray_trainer.py": {
+    "upstream_sha256": "37d069e9e85d03b91f1df6f9b99fae27cbc7761f58db7b5f429d8f0c27d6345d",
+    "overlay_sha256": "6d3b31a8f5946bb3811c9ddde88812dff8bc5d06a61fcca146afdc695a4763e6"
+  },
+  "VAGEN/vagen/rollout/qwen_rollout/rollout_manager.py": {
+    "upstream_sha256": "03e626e82519049d8f9d5d37ef2df3daf33f701176829be56ba888cbb9413c7a",
+    "overlay_sha256": "cf10f6fdfbfdc9b5850e19aaabe19885191dfc08629b2750769f6efca2b58acd"
+  },
+  "VAGEN/vagen/rollout/qwen_rollout/rollout_manager_service.py": {
+    "upstream_sha256": "1940d4931507618513d36a8bed57d831d1c83167106003f25face86b8ec74439",
+    "overlay_sha256": "97efd919c8e131f917413453190b075dabd0bc86e7ac3cdcdaec9c664a964ae1"
+  },
+  "VAGEN/vagen/env/svg/env.py": {
+    "upstream_sha256": "106f066c0031cd7ca33672a4de7b57aa6db4fb7362ec9824f60199d92163dd7e",
+    "overlay_sha256": "e3ff02f9cdad0c0fc8186e323332c76cf4181d031587d640c668c3d78c5c637e"
+  },
+  "VAGEN/vagen/env/svg/env_config.py": {
+    "upstream_sha256": "f11752495c06932da4e2fccd33cd53b2990e782468a889a9c0aacf8a17c9b052",
+    "overlay_sha256": "eeff907154619927a4ad290745f04b0bcd69fbfa46079c4dd13fbfa6b1b3d703"
+  },
+  "VAGEN/vagen/env/svg/service.py": {
+    "upstream_sha256": "43f2d1a4ac175233b6f0a98014552bf745ef43083d180ababca2acf215c097a1",
+    "overlay_sha256": "20e696c0a17c0f323a0a2937f467a2bacf4dae09cc2e9ae906bba4f4e768352c"
+  },
+  "VAGEN/vagen/env/svg/svg_utils.py": {
+    "upstream_sha256": "8432cd4fd5f8c4088b4ab511fb0ba2269bb567182af9b20a68b873700c8c66d8",
+    "overlay_sha256": "4578040bb3435dfe9ff25344eda1105b7a740c46b30ede30a484f1e257539023"
+  },
+  "verl/verl/workers/rollout/vllm_rollout/vllm_rollout_spmd.py": {
+    "upstream_sha256": "4f3c0559c68441fe3d984ef8ffe23f823018fc21dcccf7650a98ebf375d4a72e",
+    "overlay_sha256": "265081bfea99c09ddfccb60883d16fe887507dddb69e641a426287e24a4f4098"
+  },
+  "verl/verl/workers/actor/dp_actor.py": {
+    "upstream_sha256": "ed77c7a75745a92772087e1a28185b1c37903cc4d2af69c54e84a0797656db8f",
+    "overlay_sha256": "740328069b51344b8d08d22fc255c79f875c0f827d6766b213cbf3b6c6b561f8"
+  },
+  "verl/verl/trainer/ppo/sdar_utils.py": {
+    "upstream_sha256": null,
+    "overlay_sha256": "87bbbdf8540721f59b8b8b51457c53c8cafe341743d0e88441c7cc14b6369ad4"
+  }
+}

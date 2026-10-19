@@ -1,0 +1,6 @@
+"""SVG adapters for matched VAGEN GRPO + SDAR sampled-token distillation."""
+
+VAGEN_REVISION = "9cfe7f06f2fd59d8333d9707a16a0ad60e1508ed"
+VERL_REVISION = "3f55021e08b98315213e10d10b709c7f6bbe84f7"
+SDAR_REVISION = "d511f043afe9199b8576fc99ea52e12d84841f32"
+

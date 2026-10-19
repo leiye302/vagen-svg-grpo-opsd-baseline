@@ -1,0 +1,95 @@
+data:
+  train_files: ${runtime.work_dir}/data/train500.parquet
+  val_files: ${runtime.work_dir}/data/dev64.parquet
+  train_batch_size: 16
+  val_batch_size: 64
+  max_prompt_length: 8192
+  max_response_length: 750
+  max_trajectory_length: 8192
+  image_key: images
+  truncation: error
+  shuffle: true
+  seed: 2026
+algorithm:
+  adv_estimator: grpo
+  high_level_gamma: 1.0
+  gamma: 1.0
+  kl_ctrl:
+    kl_coef: 0.0
+  svg_opsd:
+    enabled: true
+    arm: baseline
+    static_skill_file: ${runtime.repo_dir}/configs/svg_static_skill.txt
+    teacher_score_batch_size: 1
+actor_rollout_ref:
+  model:
+    path: ${runtime.work_dir}/models/Qwen2.5-VL-3B-Instruct
+    use_remove_padding: true
+    enable_gradient_checkpointing: true
+  actor:
+    optim:
+      lr: 1.0e-6
+    ppo_mini_batch_size: 32
+    ppo_micro_batch_size_per_gpu: 1
+    ppo_epochs: 1
+    use_kl_loss: true
+    kl_loss_coef: 0.01
+    kl_loss_type: low_var_kl
+    entropy_coeff: 0.001
+    sdar_coef: 0.01
+    sdar_gate_beta: 5.0
+    loss_agg_mode: token-mean
+    fsdp_config:
+      param_offload: true
+      optimizer_offload: true
+  rollout:
+    seed: 2026
+    temperature: 0.7
+    top_p: 0.95
+    n: 1
+    dtype: bfloat16
+    max_model_len: 8192
+    max_num_batched_tokens: 8192
+    max_num_seqs: 16
+    limit_mm_per_prompt: 3
+    log_prob_micro_batch_size_per_gpu: 1
+    tensor_model_parallel_size: 1
+    gpu_memory_utilization: 0.30
+    enable_chunked_prefill: false
+    enforce_eager: true
+    free_cache_engine: true
+  ref:
+    log_prob_micro_batch_size_per_gpu: 1
+    fsdp_config:
+      param_offload: true
+rollout_manager:
+  max_turns: 2
+  window_size: 3
+  n_trajectory: 8
+  mini_batch_size: 128
+  use_multi_turn_reward: false
+  use_loss_mask: true
+  use_gae_mask: true
+  use_service: true
+  base_url: http://127.0.0.1:5019
+  validation_do_sample: false
+trainer:
+  n_gpus_per_node: 1
+  nnodes: 1
+  total_epochs: 10
+  total_training_steps: 50
+  val_before_train: true
+  test_freq: 10
+  save_freq: 20
+  logger: [console]
+  project_name: svg_grpo_opsd
+  experiment_name: baseline50
+  default_local_dir: ${runtime.work_dir}/runs/${trainer.experiment_name}
+  resume_mode: disable
+  remove_previous_ckpt_in_save: false
+runtime:
+  work_dir: ???
+  repo_dir: ???
+preparation:
+  route_sft_manifest: null
+  checkpoint_retention_policy: latest_two_complete

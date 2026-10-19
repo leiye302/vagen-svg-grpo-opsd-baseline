@@ -1,0 +1,10 @@
+Reproduce the observed target image as a complete SVG. Compare the global
+silhouette and layout first, then object count, relative positions, scale,
+colors, stroke widths and drawing order. Use a consistent coordinate system
+and a valid viewBox. Prefer simple editable primitives when they match the
+image; close paths and preserve intentional holes or negative space.
+After rendered feedback, identify the largest visible mismatch and update
+the SVG while preserving components that already match. The rendered image,
+not merely syntactic validity, determines drawing quality. Return the entire
+SVG for each action, following the native reasoning and answer protocol.
+

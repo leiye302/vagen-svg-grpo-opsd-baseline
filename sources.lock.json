@@ -1,0 +1,32 @@
+{
+  "VAGEN": {
+    "url": "https://github.com/mll-lab-nu/VAGEN.git",
+    "commit": "9cfe7f06f2fd59d8333d9707a16a0ad60e1508ed"
+  },
+  "verl": {
+    "url": "https://github.com/JamesKrW/verl.git",
+    "commit": "3f55021e08b98315213e10d10b709c7f6bbe84f7"
+  },
+  "SDAR": {
+    "url": "https://github.com/ZJU-REAL/SDAR.git",
+    "commit": "d511f043afe9199b8576fc99ea52e12d84841f32",
+    "role": "policy loss, loss aggregation, and detached-gate OPSD function provenance"
+  },
+  "policy": {
+    "repo_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "revision": "66285546d2b821cf421d4f5eb2576359d3770cd3"
+  },
+  "dataset": {
+    "repo_id": "starvector/svg-icons-simple",
+    "revision": "e1918a27ba6649e856e5db0710d8a6c7046762c1"
+  },
+  "dino": {
+    "repo_id": "facebook/dinov2-small",
+    "revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056"
+  },
+  "dreamsim": {
+    "package": "dreamsim==0.2.1",
+    "source": "https://github.com/ssundaram21/dreamsim",
+    "weights": "Official package download URLs; downloaded file SHA-256 values recorded in asset_manifest.json"
+  }
+}

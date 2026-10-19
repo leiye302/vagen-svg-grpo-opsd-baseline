@@ -1,0 +1,7 @@
+# Merge over the pinned upstream ppo_trainer.yaml, then common.yaml.
+trainer:
+  total_training_steps: 50
+  experiment_name: baseline50
+  val_before_train: true
+  test_freq: 10
+  save_freq: 20
